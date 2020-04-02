@@ -2,9 +2,6 @@
 using JobBoard.Domain.Entities.User;
 using JobBoard.BusinessLogic;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace JobBoard.Web.Controllers
@@ -21,7 +18,7 @@ namespace JobBoard.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(UserLogin login)
+        public ActionResult Index(ULoginData login)
         {
             if (ModelState.IsValid)
             {
@@ -33,7 +30,9 @@ namespace JobBoard.Web.Controllers
                     LoginDateTime = DateTime.Now
                 };
 
-                var userLogin = _session.UserLogin(data);
+                var userLogin = _session.ULoginData(data);
+
+                /*
                 if (userLogin.Status)
                 {
                     // ADD COOKIE
@@ -46,6 +45,7 @@ namespace JobBoard.Web.Controllers
                     return View();
                 }
 
+               */
             }
 
             return View();

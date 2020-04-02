@@ -1,15 +1,15 @@
 ﻿using JobBoard.BusinessLogic.Core;
 using JobBoard.BusinessLogic.Interfaces;
+using JobBoard.Domain.Entities.User;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JobBoard.BusinessLogic
 {
     public class SessionBL : UserApi, ISession
     {
-
+        public object ULoginData(ULoginData data)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

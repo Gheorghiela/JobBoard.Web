@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobBoard.Domain.Entities.User;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace JobBoard.BusinessLogic.Interfaces
 {
     public interface ISession
     {
+        object ULoginData(ULoginData data);
     }
 }
