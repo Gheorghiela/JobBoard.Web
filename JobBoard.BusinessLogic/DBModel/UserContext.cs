@@ -6,7 +6,7 @@ namespace JobBoard.BusinessLogic.DBModel
     class UserContext : DbContext
     {
         public UserContext():
-            base("name=eUseControl") //connectionstring name define in your web.confib
+            base("name=JobBoardDB") //connectionstring name define in your web.confib
         {
 
         }

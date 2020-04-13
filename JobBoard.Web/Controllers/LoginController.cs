@@ -3,25 +3,25 @@ using JobBoard.Domain.Entities.User;
 using JobBoard.BusinessLogic;
 using System;
 using System.Web.Mvc;
-using JobBoard.BusinessLogic.DBModel;
 using AutoMapper;
+using JobBoard.Web.Models;
 
 namespace JobBoard.Web.Controllers
 {
     public class LoginController : Controller
     {
+          // GET: Login
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         private readonly ISession _session;
 
         public LoginController()
         {
             var bl = new BussinesLogic();
             _session = bl.GetSessionBL();
-        }
-
-        // GET: Login
-        public ActionResult Index()
-        {
-            return View();
         }
 
         [HttpPost]

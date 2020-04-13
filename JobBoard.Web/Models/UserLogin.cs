@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JobBoard.BusinessLogic.DBModel
+namespace JobBoard.Web.Models
 {
     public class UserLogin
     {
