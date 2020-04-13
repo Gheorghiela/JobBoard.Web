@@ -11,5 +11,20 @@ namespace JobBoard.BusinessLogic
         {
             throw new NotImplementedException();
         }
+
+        public ULoginResp UserLogin(ULoginData data)
+        {
+            return UserLoginAction(data);
+        }
+
+        object ISession.UserLogin(ULoginData data)
+        {
+            throw new NotImplementedException();
+        }
+
+        private ULoginResp UserLoginAction(ULoginData data)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

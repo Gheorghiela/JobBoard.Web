@@ -10,5 +10,6 @@ namespace JobBoard.BusinessLogic.Interfaces
     public interface ISession
     {
         object ULoginData(ULoginData data);
+        object UserLogin(ULoginData data);
     }
 }
