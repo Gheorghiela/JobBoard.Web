@@ -11,5 +11,6 @@ namespace JobBoard.BusinessLogic.Interfaces
     {
         object ULoginData(ULoginData data);
         object UserLogin(ULoginData data);
+        object GetUserByCookie(string value);
     }
 }
