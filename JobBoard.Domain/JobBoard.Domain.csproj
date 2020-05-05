@@ -48,10 +48,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Entities\Topics\CategoryData.cs" />
+    <Compile Include="Entities\Topics\CategoryResp.cs" />
+    <Compile Include="Entities\Topics\Forum.cs" />
+    <Compile Include="Entities\Topics\SubjectData.cs" />
+    <Compile Include="Entities\Topics\SubjectResp.cs" />
+    <Compile Include="Entities\Topics\TopicData.cs" />
+    <Compile Include="Entities\Topics\TopicResp.cs" />
+    <Compile Include="Entities\User\Session.cs" />
     <Compile Include="Entities\User\UDbTable.cs" />
     <Compile Include="Entities\User\ULoginData.cs" />
     <Compile Include="Entities\User\ULoginResp.cs" />
-    <Compile Include="Entities\User\URole.cs" />
+    <Compile Include="Entities\User\ULogoutResp.cs" />
+    <Compile Include="Entities\User\URegisterData.cs" />
+    <Compile Include="Entities\User\URegisterResp.cs" />
+    <Compile Include="Enums\URole.cs" />
+    <Compile Include="Entities\User\UserMinimal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,9 +72,7 @@
       <Name>JobBoard.Helpers</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Enums\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

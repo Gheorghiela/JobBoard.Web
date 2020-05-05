@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace JobBoard.Domain.Entities.User
 {
-    public class URole
+    public class ULogoutResp
     {
-        public static object Administrator { get; set; }
+        public bool Status { get; set; }
+        public string StatusMsg { get; set; }
     }
 }

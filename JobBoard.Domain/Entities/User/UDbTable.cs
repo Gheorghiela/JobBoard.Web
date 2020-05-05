@@ -8,28 +8,28 @@ namespace JobBoard.Domain.Entities.User
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int ID { get; set; }
+
         [Required]
-        [Display(Name = "Username")]
-        [StringLength(30, MinimumLength = 4, ErrorMessage = "Username must be less than 30 characters")]
+        [Display(Name = "username")]
+        //[StringLength(30,MinimumLength =5,ErrorMessage ="Numele de utilizator nu poate fi mai lung de 30 de caractere")]
         public string Username { get; set; }
 
         [Required]
-        [Display(Name = "Password")]
-        [StringLength(40, MinimumLength = 8, ErrorMessage = "Password must be more than 8 characters")]
+        [Display(Name = "password")]
+        //[StringLength(50, MinimumLength = 8, ErrorMessage = "Parola nu poate fi mai lung de 50 de caractere")]
         public string Password { get; set; }
 
         [Required]
-        [EmailAddress]
-        [Display(Name = "Email Address")]
-        [StringLength(30)]
+        [Display(Name = "email")]
+        //[StringLength(50, MinimumLength = 8, ErrorMessage = "Email-ul nu poate fi mai lung de 50 de caractere")]
         public string Email { get; set; }
 
-        [DataType(DataType.Date)]
-         public DateTime LastLogin { get; set; }
+        //[DataType(DataType.DateTime)]
+        //public DateTime LastLogin { get; set; }
 
         [StringLength(30)]
-        public string LastIp { get; set; }
+        public string LasIp { get; set; }
 
         public URole Level { get; set; }
 

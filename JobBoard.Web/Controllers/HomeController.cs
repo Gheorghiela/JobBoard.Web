@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using JobBoard.Web.Extension;
+using JobBoard.Web.Models;
+using System;
 using System.Web.Mvc;
 
 namespace JobBoard.Web.Controllers
@@ -11,7 +10,22 @@ namespace JobBoard.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            SessionStatus();
+            if ((string)System.Web.HttpContext.Current.Session["LoginStatus"] == "login")
+            {
+                var user = System.Web.HttpContext.Current.GetMySessionObject();
+                UserLogin u = new UserLogin
+                {
+                    Credential = user.Username,
+                };
+                return View(u);
+            }
             return View();
+        }
+
+        private void SessionStatus()
+        {
+            throw new NotImplementedException();
         }
 
         public ActionResult About()

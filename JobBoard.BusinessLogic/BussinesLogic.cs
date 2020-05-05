@@ -1,9 +1,5 @@
 ﻿using JobBoard.BusinessLogic.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using JobBoard.BusinessLogic.LogicBL;
 
 namespace JobBoard.BusinessLogic
 {
@@ -12,6 +8,11 @@ namespace JobBoard.BusinessLogic
         public ISession GetSessionBL()
         {
             return new SessionBL();
+        }
+
+        public IRegister GetRegisterBL()
+        {
+            return new RegisterBL();
         }
     }
 }

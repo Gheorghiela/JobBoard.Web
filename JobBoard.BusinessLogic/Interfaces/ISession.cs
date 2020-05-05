@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace JobBoard.BusinessLogic.Interfaces
 {
@@ -12,5 +13,7 @@ namespace JobBoard.BusinessLogic.Interfaces
         object ULoginData(ULoginData data);
         object UserLogin(ULoginData data);
         object GetUserByCookie(string value);
+        HttpCookie GenCookie(string credential);
+        void UserLogout(object username);
     }
 }
