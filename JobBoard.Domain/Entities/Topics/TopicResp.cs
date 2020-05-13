@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eUseControl.Domain.Entites.Topics
+namespace JobBoard.Domain.Entites.Topics
 {
     public class TopicResp
     {

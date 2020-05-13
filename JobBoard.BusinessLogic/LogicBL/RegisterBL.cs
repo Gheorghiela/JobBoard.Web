@@ -1,6 +1,6 @@
-﻿using eUseControl.BusinessLogic.Interfaces;
-using eUseControl.BusinessLogic.Core;
+﻿using JobBoard.BusinessLogic.Core;
 using JobBoard.Domain.Entities.User;
+using JobBoard.BusinessLogic.Interfaces;
 
 namespace JobBoard.BusinessLogic.LogicBL
 {

@@ -4,35 +4,18 @@ using System.Data.Entity;
 using System.Linq;
 using AutoMapper;
 using JobBoard.BusinessLogic.DBModel;
+using JobBoard.BusinessLogic.LogicBL;
 using JobBoard.Domain.Entities.User;
 using JobBoard.Helpers;
 using System.Web;
-using JobBoard.Domain.Entities.Topics;
 using System.Collections.Generic;
-using eUseControl.Helpers;
 using JobBoard.Domain.Entites.Topics;
-using eUseControl.Domain.Entites.Topics;
+using eUseControl.Helpers;
 
-namespace eUseControl.BusinessLogic.Core
+namespace JobBoard.BusinessLogic.Core
 {
     public class UserApi
     {
-        internal URegisterResp UserRegisterAction(URegisterData data)
-        {
-            UDbTable new_user = new UDbTable();
-
-            using (var todo = new UserContext())
-            {
-                new_user.Username = data.Username;
-                new_user.Password = LoginHelper.HashGen(data.Password);
-                new_user.Email = data.Email;
-
-                todo.Users.Add(new_user);
-                todo.SaveChanges();
-            }
-            return new URegisterResp();
-        }
-
         internal ULoginResp UserLoginAction(ULoginData data)
         {
             UDbTable result;
@@ -50,13 +33,13 @@ namespace eUseControl.BusinessLogic.Core
                     return new ULoginResp { Status = false, StatusMsg = "The Username or Password is Incorrect" };
                 }
 
-                /*using (var todo = new UserContext())
+                using (var todo = new UserContext())
                 {
                     result.LasIp = data.LoginIp;
                     result.LastLogin = data.LoginDateTime;
                     todo.Entry(result).State = EntityState.Modified;
                     todo.SaveChanges();
-                }*/
+                }
 
                 return new ULoginResp { Status = true };
             }
@@ -71,6 +54,14 @@ namespace eUseControl.BusinessLogic.Core
                 if (result == null)
                 {
                     return new ULoginResp { Status = false, StatusMsg = "The Username or Password is Incorrect" };
+                }
+
+                using (var todo = new UserContext())
+                {
+                    result.LasIp = data.LoginIp;
+                    result.LastLogin = data.LoginDateTime;
+                    todo.Entry(result).State = EntityState.Modified;
+                    todo.SaveChanges();
                 }
 
                 return new ULoginResp { Status = true };
@@ -151,57 +142,6 @@ namespace eUseControl.BusinessLogic.Core
             var userminimal = Mapper.Map<UserMinimal>(curentUser);
 
             return userminimal;
-        }
-
-        internal ULogoutResp UserLogoutAction(string user)
-        {
-            using (var db = new SessionContext())
-            {
-                Session curent;
-                curent = (from e in db.Sessions where e.Username == user select e).FirstOrDefault();
-                curent.ExpireTime = DateTime.Now.AddMinutes(-1);
-                using (var todo = new SessionContext())
-                {
-                    todo.Entry(curent).State = EntityState.Modified;
-                    todo.SaveChanges();
-                }
-            }
-            return new ULogoutResp();
-        }
-
-        internal CategoryResp AddCategoryAction(CategoryData category)
-        {
-            Forum new_category = new Forum();
-            using (var todo = new ForumContext())
-            {
-                new_category.Category = category.Title;
-                todo.Forum.Add(new_category);
-                todo.SaveChanges();
-            }
-
-            return new CategoryResp();
-        }
-
-        internal TopicResp AddTopicAction(TopicData topic, int id)
-        {
-            using (var db = new ForumContext())
-            {
-                Forum category;
-                category = (from e in db.Forum where e.CategoryID == id select e).FirstOrDefault();
-                if (category.Topics == null)
-                    category.Topics = new List<TopicData>();
-                category.Topics.Add(topic);
-                db.Entry(category).State = EntityState.Modified;
-                db.SaveChanges();
-
-            }
-
-            return new TopicResp();
-        }
-
-        internal SubjectResp AddSubjectAction(SubjectData category)
-        {
-            return new SubjectResp();
         }
     }
 }

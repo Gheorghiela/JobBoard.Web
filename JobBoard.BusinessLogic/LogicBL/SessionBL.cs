@@ -1,5 +1,4 @@
-﻿using eUseControl.BusinessLogic.Core;
-using JobBoard.BusinessLogic.Core;
+﻿using JobBoard.BusinessLogic.Core;
 using JobBoard.BusinessLogic.Interfaces;
 using JobBoard.Domain.Entities.User;
 using System;
@@ -42,6 +41,16 @@ namespace JobBoard.BusinessLogic
         public ULogoutResp UserLogout(string user)
         {
             return UserLogoutAction(user);
+        }
+
+        private ULogoutResp UserLogoutAction(string user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UserLogout(object username)
+        {
+            throw new NotImplementedException();
         }
     }
 }
